@@ -1,0 +1,130 @@
+/* ===== TASHQI CSS (css/style.css) ===== */
+
+/* 11. Universal selektor */
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* 14. Matn va orqa fon dizayni */
+body{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#1c1a3d;
+  background:linear-gradient(120deg,#d9d2ff,#c8f5ee,#ffe0e6,#fff0cf);background-size:300% 300%;
+  animation:fon 16s ease infinite;padding-top:64px}
+@keyframes fon{50%{background-position:100% 50%}}
+
+/* 11. Guruhli selektor, teg selektori */
+h1,h2,h3{line-height:1.2;margin-bottom:12px;color:#2a1f7a}
+h1{font-size:44px}
+h2{font-size:30px;text-align:center}
+p{margin-bottom:12px}
+p::first-letter{font-size:1.2em;color:#6c4cff;font-weight:bold}   /* pseudo-element */
+::selection{background:#ff6b81;color:#fff}
+a{color:#6c4cff}
+a:hover{color:#ff6b81}                                              /* pseudo-class */
+
+/* 17. Sahifa qismlari: header, nav, main, section, footer */
+header.top{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.85);
+  backdrop-filter:blur(10px);box-shadow:0 2px 14px rgba(60,40,160,.15)}                /* 16. position:fixed */
+header.top .bar{max-width:1100px;margin:auto;height:64px;padding:0 20px;display:flex;
+  justify-content:space-between;align-items:center}                                    /* 16. display:flex */
+#logo{font-size:20px;font-weight:bold;text-decoration:none}                             /* id selektor */
+nav ul{list-style:none;display:flex;gap:6px}                                            /* avlod selektor */
+nav ul>li>a{display:inline-block;padding:8px 14px;border-radius:10px;text-decoration:none;
+  color:#1c1a3d;font-weight:bold;transition:.25s}                                       /* bola selektor; 18. transition */
+nav ul>li>a:hover,nav a.active{background:#6c4cff;color:#fff;transform:translateY(-2px)}
+main{max-width:1100px;margin:auto;padding:30px 20px}
+section{margin-bottom:56px}
+.sub{text-align:center;color:#5b587f;margin-bottom:28px}
+footer{text-align:center;padding:26px;background:rgba(255,255,255,.6);color:#5b587f;font-size:14px}
+
+/* Tugmalar (class selektor) */
+.btn{display:inline-block;padding:12px 26px;border:0;border-radius:12px;background:#6c4cff;color:#fff;
+  font-size:15px;font-weight:bold;text-decoration:none;cursor:pointer;box-shadow:0 8px 20px rgba(108,76,255,.35);transition:.25s}
+.btn:hover{transform:translateY(-4px);color:#fff}
+.btn.pink{background:#ff6b81}
+.btn.white{background:#fff;color:#1c1a3d}
+
+/* Bosh sahifa (hero) + 3D kub */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:30px;min-height:70vh}
+.hero .text{flex:1;min-width:280px}
+.hero h1 em{color:#6c4cff;font-style:normal}
+.scene{flex:1;min-width:280px;height:380px;perspective:900px;display:flex;align-items:center;justify-content:center}
+.cube{width:160px;height:160px;position:relative;transform-style:preserve-3d;animation:aylan 14s linear infinite}
+.cube div{position:absolute;width:160px;height:160px;display:flex;align-items:center;justify-content:center;
+  font-size:60px;border:2px solid #fff;border-radius:20px}
+.cube div:nth-child(1){transform:translateZ(80px);background:rgba(108,76,255,.6)}
+.cube div:nth-child(2){transform:rotateY(90deg) translateZ(80px);background:rgba(0,194,168,.6)}
+.cube div:nth-child(3){transform:rotateY(180deg) translateZ(80px);background:rgba(255,107,129,.6)}
+.cube div:nth-child(4){transform:rotateY(-90deg) translateZ(80px);background:rgba(255,184,77,.65)}
+.cube div:nth-child(5){transform:rotateX(90deg) translateZ(80px);background:rgba(108,76,255,.45)}
+.cube div:nth-child(6){transform:rotateX(-90deg) translateZ(80px);background:rgba(0,194,168,.45)}
+@keyframes aylan{to{transform:rotateX(360deg) rotateY(360deg)}}                       /* 18. animatsiya */
+
+/* Kartalar (3D qiyshayish) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;perspective:1000px}  /* display:grid */
+.card{position:relative;background:rgba(255,255,255,.85);border-radius:20px;padding:24px;
+  box-shadow:0 14px 34px rgba(60,40,160,.15);transition:transform .4s,box-shadow .4s}
+.card:hover{transform:rotateY(-8deg) rotateX(6deg) translateY(-8px);box-shadow:0 26px 46px rgba(60,40,160,.28)}
+.badge{position:absolute;top:-10px;right:-10px;background:#ff6b81;color:#fff;font-size:12px;font-weight:bold;
+  padding:5px 12px;border-radius:99px;animation:puls 1.6s infinite}                     /* 16. position:absolute */
+@keyframes puls{50%{transform:scale(1.15)}}
+
+/* 15. Rasmlarga dizayn */
+img.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;border:4px solid #fff;
+  box-shadow:0 8px 20px rgba(60,40,160,.3);display:block;margin-bottom:12px;transition:.4s}
+img.avatar:hover{transform:rotate(8deg) scale(1.08)}
+figure{background:#fff;padding:12px;border-radius:16px;box-shadow:0 10px 26px rgba(60,40,160,.15);display:inline-block}
+figure img{width:100%;border-radius:10px;display:block}
+figcaption{text-align:center;font-size:14px;color:#5b587f;margin-top:8px}
+.photo{max-width:100%;border-radius:18px;box-shadow:0 14px 34px rgba(60,40,160,.25)}
+
+/* Roʻyxatlar */
+ul.check{list-style:none}
+ul.check li{padding:6px 0 6px 30px;position:relative}
+ul.check li::before{content:"✔";position:absolute;left:0;color:#00c2a8;font-weight:bold}
+ul.check li:first-child{font-weight:bold}
+ol.steps{padding-left:24px}
+ol.steps li{margin-bottom:8px}
+dl dt{font-weight:bold;color:#6c4cff;margin-top:10px}
+dl dd{margin-left:20px;color:#5b587f}
+
+/* 15. Jadvallarga dizayn */
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;
+  box-shadow:0 12px 30px rgba(60,40,160,.15)}
+caption{font-weight:bold;font-size:18px;padding:12px;color:#2a1f7a}
+th,td{padding:12px 14px;text-align:center;border-bottom:1px solid #eee}
+thead th{background:linear-gradient(90deg,#6c4cff,#00c2a8);color:#fff}
+tbody tr:nth-child(even){background:#f3f0ff}
+tbody tr:hover{background:#ffe9ee}
+tfoot td{background:#ece8ff;font-weight:bold}
+td.band{color:#aaa;text-decoration:line-through}
+td.bosh{color:#0a9e87;font-weight:bold}
+
+/* Forma */
+form{max-width:680px;margin:auto;background:rgba(255,255,255,.85);padding:30px;border-radius:24px;
+  box-shadow:0 20px 44px rgba(60,40,160,.16)}
+fieldset{border:2px dashed #cfc7ff;border-radius:14px;padding:14px 18px;margin-bottom:14px}
+legend{padding:0 8px;font-weight:bold;color:#6c4cff}
+label{display:block;margin:10px 0 4px;font-weight:bold;font-size:14px}
+input[type=text],input[type=tel],input[type=email],input[type=date],select,textarea{width:100%;padding:12px;
+  border:2px solid #ddd6ff;border-radius:12px;font-size:15px;background:#fff}                 /* atribut selektor */
+input[type=radio],input[type=checkbox]{margin-right:6px}
+input:focus,select:focus,textarea:focus{outline:3px solid #00c2a8}
+form .row label{display:inline-block;margin-right:16px}
+
+/* Tashqi fayl havolalari (atribut selektor) */
+a[href$=".pdf"]{display:inline-block;padding:12px 22px;background:#ff6b81;color:#fff;border-radius:12px;
+  text-decoration:none;font-weight:bold}
+a[href$=".pdf"]::before{content:"📄 "}
+video,audio{width:100%;max-width:640px;border-radius:16px;display:block;margin:auto;box-shadow:0 14px 30px rgba(60,40,160,.2)}
+
+/* Kontaktlar, harakatlanuvchi yozuv */
+.marquee{overflow:hidden;white-space:nowrap;background:#6c4cff;color:#fff;border-radius:12px;padding:10px;margin-bottom:30px}
+.marquee span{display:inline-block;padding-left:100%;animation:yur 18s linear infinite}
+@keyframes yur{to{transform:translateX(-100%)}}
+.two{display:flex;flex-wrap:wrap;gap:24px}
+.two>*{flex:1;min-width:280px}
+.center{text-align:center}
+.hide{display:none}
+
+@media(max-width:760px){h1{font-size:30px}nav ul{flex-wrap:wrap;justify-content:flex-end}nav ul>li>a{padding:6px 8px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px}
